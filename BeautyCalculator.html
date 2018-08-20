@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Beautiful Calculator</title>
+    <style>
+    body,html{
+        height:100%;
+        margin:0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size:20px
+    }
+    .main
+    {
+        width:400px;
+        height:200px;
+        background-color: #FFaa00;
+        margin:100px auto 100px auto;
+        padding:30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray
+    }
+    .leftdiv{
+        float:left;
+        width:45%;
+        text-align: right;
+        margin:10px
+    }
+    .rightdiv
+    {
+        float:left;
+        width:45%;
+        margin:10px
+    }
+    .txtformat{
+        padding:8px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px gray
+    }
+    .btndiv{
+        text-align: center
+    }
+    .btnformat{
+        height:80px;
+        width:80px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50%
+    }
+    .customborder{
+        border:solid 1px gray
+    }
+    .ansdiv{
+        text-align: center;
+        font-size: 20px
+    }
+    </style>
+</head>
+<body>
+    <div class=main>
+        <div class=leftdiv>
+            <label>Number 1</label>
+        </div>
+        <div class=rightdiv>
+            <input id=txtNumber1 class=txtformat type=text />
+        </div>
+
+        <div class=leftdiv>
+                <label>Number 2</label>
+        </div>
+        <div class=rightdiv>
+            <input id=txtNumber2 class=txtformat type=text />
+        </div>
+        
+
+        <div class=btndiv>
+            <input id=btnSum class="btnformat customborder" type=button value=Sum />
+            <input id=btnMul class="btnformat customborder" type=button value=Mul />
+            <input id=btnSub class="btnformat customborder" type=button value=Sub />
+            <input id=btnDiv class="btnformat customborder" type=button value=Div />
+        </div>
+        <div class=ansdiv id=divans>
+            
+        </div>
+    </div>
+</body>
+<script>
+    //This code will calculate some of the two numbers
+    var btnSum = document.getElementById("btnSum");
+    var txtNumber1 = document.getElementById("txtNumber1");
+    var txtNumber2 = document.getElementById("txtNumber2");
+    var divans = document.getElementById("divans");
+    var ans=0;
+    /*
+    //Sum calculation
+    btnSum.onclick = function(){
+        //Check for empty numbers
+        if(txtNumber1.value == "" || txtNumber2.value == ""){
+            alert("Please enter both numbers.");
+            //Use return false if you dont want to use else 
+            return false;
+        }
+        var number1 = parseFloat(txtNumber1.value);
+        var number2 = parseFloat(txtNumber2.value);
+        ans = number1 + number2;
+        alert(ans);
+        
+    };
+    //Subtraction calculation
+    btnSub.onclick = function(){
+        //Check for empty numbers
+        if(txtNumber1.value == "" || txtNumber2.value == ""){
+            alert("Please enter both numbers.");
+            //Use return false if you dont want to use else 
+            return false;
+        }
+        var number1 = parseFloat(txtNumber1.value);
+        var number2 = parseFloat(txtNumber2.value);
+        ans = number1 - number2;
+        alert(ans);
+        
+    };
+    */
+
+    //New part with code optimization
+    btnSum.onclick = function(){
+        Operation("+");
+    };
+    btnSub.onclick = function(){
+        Operation("-");
+    };
+    btnMul.onclick = function(){
+        Operation("*");
+    };
+    btnDiv.onclick = function(){
+        Operation("/");
+    };
+    function Operation(op){
+        //Check for empty numbers
+        if(txtNumber1.value == "" || txtNumber2.value == ""){
+            alert("Please enter both numbers.");
+            //Use return false if you dont want to use else 
+            return false;
+        }
+        var number1 = parseFloat(txtNumber1.value);
+        var number2 = parseFloat(txtNumber2.value);
+        if(op == "-"){
+            ans = number1 - number2;
+        }
+        if(op == "+"){
+            ans = number1 + number2;
+        }
+        if(op == "*"){
+            ans = number1 * number2;
+        }
+        if(op == "/"){
+            ans = number1 / number2;
+        }
+        //alert(ans);
+        divans.innerHTML = ans;
+    }
+    //
+</script>
+</html>
