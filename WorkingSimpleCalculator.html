@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Working Simple Calculator</title>
+        <style>
+            
+            body,html{
+                margin:0;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size:20px;
+                /*background-color: lightslategray*/
+            }
+            #main{
+                width:300px;
+                height:400px;
+                border:solid 1px gray;
+                border-radius: 10px;
+                box-shadow:0px 0px 20px lightgray;
+                margin:100px auto 100px auto;
+                padding:10px
+            }
+            #divTxtbox input{
+                box-sizing: border-box;
+                width:100%;
+                border:solid 1px #c4c4c4;
+                padding:10px;
+                outline:none;
+                border-radius: 4px;
+                box-shadow:0px 0px 8px #d9d9d9;
+                font-size:40px;
+                text-align: right
+            }
+            #divTxtbox input:focus{
+                outline:none;
+                border:solid 1px #7bc1f7;
+                box-shadow: 0px 0px 8px #7bc1f7
+            }
+            #digits
+            {
+                margin:20px 0 10px 0;
+                
+            }
+            #digits input
+            {
+                font-size: 20px;
+                width:70px;
+                height:70px;
+                border:none;
+                cursor:pointer;
+                box-shadow: 5px 5px 10px gray
+            }
+            #firstline,#secondline,#thirdline,#fourthline{
+                margin-top:5px
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id=main>
+            <div id=divTxtbox>
+                <input type=text readonly id=txtAnswer />
+            </div>
+            <div id=digits>
+                <div id=firstline>
+                    <input type=button value=7 id=btn7 />
+                    <input type=button value=8 id=btn8 />
+                    <input type=button value=9 id=btn9 />
+                    <input type=button value=/ id=btnDivision />
+                </div>
+                <div id=secondline>
+                    <input type=button value=4 id=btn4 />
+                    <input type=button value=5 id=btn5 />
+                    <input type=button value=6 id=btn6 />
+                    <input type=button value=* id=btnMultiply />
+                </div>
+                <div id=thirdline>
+                    <input type=button value=1 id=btn1 />
+                    <input type=button value=2 id=btn2 />
+                    <input type=button value=3 id=btn3 />
+                    <input type=button value=- id=btnMinus />
+                </div>
+                <div id=thirdline>
+                    <input type=button value=. id=btnDot />
+                    <input type=button value=0  id=btn0 />
+                    <input type=button value="=" id=btnEqual />
+                    <input type=button value=+ id=btnPlus />
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        //Variable declaration
+        var btn0 = document.getElementById("btn0");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var btn4 = document.getElementById("btn4");
+        var btn5 = document.getElementById("btn5");
+        var btn6 = document.getElementById("btn6");
+        var btn7 = document.getElementById("btn7");
+        var btn8 = document.getElementById("btn8");
+        var btn9 = document.getElementById("btn9");
+
+        var btnPlus = document.getElementById("btnPlus");
+        var btnMinus = document.getElementById("btnMinus");
+        var btnMultiply = document.getElementById("btnMultiply");
+        var btnDivision = document.getElementById("btnDivision");
+        var btnEqual = document.getElementById("btnEqual");
+
+        var btnDot = document.getElementById("btnDot");
+
+        var txtAnswer = document.getElementById("txtAnswer");
+
+        //Temp variable
+        var number1;
+        var number2;
+        var answer;
+        var operator;
+        //
+
+        //Event handling
+        btn1.onclick = function(){
+            HandleDigits(this);
+        };
+        btn2.onclick = function(){
+            HandleDigits(this);
+        };
+        btn3.onclick = function(){
+            HandleDigits(this);
+        };
+        btn4.onclick = function(){
+            HandleDigits(this);
+        };
+        btn5.onclick = function(){
+            HandleDigits(this);
+        };
+        btn6.onclick = function(){
+            HandleDigits(this);
+        };
+        btn7.onclick = function(){
+            HandleDigits(this);
+        };
+        btn8.onclick = function(){
+            HandleDigits(this);
+        };
+        btn9.onclick = function(){
+            HandleDigits(this);
+        };
+        btn0.onclick = function(){
+            HandleDigits(this);
+        };
+
+        //Common function to handle digits entering
+        function HandleDigits(btnObj){
+            txtAnswer.value = txtAnswer.value + btnObj.value;
+        }
+        //
+
+
+        //Operator handling
+        btnPlus.onclick = function(){
+            operator = "+";
+            number1 = parseFloat(txtAnswer.value);
+            txtAnswer.value="";
+        };
+        btnMinus.onclick = function(){
+            operator = "-";
+            number1 = parseFloat(txtAnswer.value);
+            txtAnswer.value="";
+        };
+        btnEqual.onclick = function(){
+            number2 = parseFloat(txtAnswer.value);
+            if(operator == "+"){
+                txtAnswer.value = number1 + number2;
+            }
+            if(operator == "-"){
+                txtAnswer.value = number1 - number2;
+            }
+        };
+        //
+    </script>
+</html>
