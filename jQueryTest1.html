@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        *{
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+        .myformat{
+            color:red
+        }
+        #divShow{
+            display: none
+        }
+        </style>
+        <title>jQuery Test 1</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            //Get document object by using $ sign and ready function
+            $(document).ready(function(){
+                //To get all div and apply myformat class
+                $("div").addClass("myformat");
+
+                //To get all div a style with inline style
+                $("div").css("border","solid 1px blue");
+
+                //To get a button and attach a click event
+                $("#btnSave").click(function(){
+                    //window.location.href = "http://www.google.com";
+                    //window.open("http://yahoo.com","_blank");
+                    $("div").fadeOut(2000,function(){
+                        $(this).remove();
+                    });
+                });
+                
+                $("#btnShow").click(function(){
+                    $("#divShow").fadeIn(5000);
+                });
+
+
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div>First div</div>
+        <div>Second div</div>
+        <div>Third div</div>
+        <div>First div</div>
+        <div>Second div</div>
+        <div>Third div</div>
+        <div>First div</div>
+        <div>Second div</div>
+        <div>Third div</div>
+        <input id=btnSave type=button value=Save />
+
+        <input type=button value=Show id=btnShow />
+        <div id=divShow>
+            This is the area to be shown
+        </div>
+    </body>
+</html>

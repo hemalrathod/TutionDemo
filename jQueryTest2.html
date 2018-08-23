@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        *{
+            font-size: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+        #divBox{
+            width:100px;
+            height:100px;
+            background-color: red;
+            position:absolute;
+            top:100px;
+            left:100px
+        }
+        </style>
+        <title>jQuery Test 2</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            //Get document object by using $ sign and ready function
+            $(document).ready(function(){
+                $("#btnRight").click(function(){
+                    //To animate a left property by 2 seconds
+                    $("#divBox").animate({"left":"+=200px"},100);
+                    //$("#divBox").css("left","+=200px");
+                });
+                $("#btnLeft").click(function(){
+                    $("#divBox").animate({"left":"-=200px"},100);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type=button value=Left id=btnLeft  />
+        <input type=button value=Right id=btnRight />
+        <input type=button value=Up />
+        <input type=button value=Down />
+
+        <div id=divBox>
+
+        </div>
+    </body>
+</html>
