@@ -7,38 +7,144 @@
             font-size: 40px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
         }
+        #divTarget{
+            width:200px;
+            height:200px;
+            border-top-left-radius: 10px;
+            position:absolute;
+            bottom:0;
+            right: 0;
+            background-color: orange;
+        
+        }
         #divBox{
             width:100px;
             height:100px;
             background-color: red;
             position:absolute;
             top:100px;
-            left:100px
+            left:0px;
+            border-radius: 50%;
+            box-shadow: 5px 5px 10px gray;
+            z-index:1
         }
         </style>
         <title>jQuery Test 2</title>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
+            //Global position variables
+            var boxL;
+            var boxT;
+            var targetL;
+            var targetT;
+
+            //Flag for victory
+            var IsBoxReached=false;
+
             //Get document object by using $ sign and ready function
             $(document).ready(function(){
+                targetL=$("#divTarget").css("left");
+                targetL = parseInt(targetL.substring(0,targetL.length-2));
+                targetT=$("#divTarget").css("top");
+                targetT = parseInt(targetT.substring(0,targetT.length-2));
                 $("#btnRight").click(function(){
                     //To animate a left property by 2 seconds
-                    $("#divBox").animate({"left":"+=200px"},100);
+                    $("#divBox").animate({"left":"+=50px"},200,function(){
+                        //alert($("#divBox").css("left"));
+                        boxL=$("#divBox").css("left");
+                        boxT=$("#divBox").css("top");
+                        console.log(boxL);
+                        console.log(targetL);
+                        console.log(boxL.substring(0,boxL.length-2));
+                        console.log(boxT);
+                        console.log(targetT);
+                        console.log(boxT.substring(0,boxT.length-2));
+                        //console.log(targetL.substring(0,targetL.length-2));
+                        boxL = parseInt(boxL.substring(0,boxL.length-2));
+                        boxT = parseInt(boxT.substring(0,boxT.length-2));
+                        IsBoxInTheTarget();
+                    });
                     //$("#divBox").css("left","+=200px");
+                    //alert($("#divTarget").css("left"));
                 });
                 $("#btnLeft").click(function(){
-                    $("#divBox").animate({"left":"-=200px"},100);
+                    $("#divBox").animate({"left":"-=50px"},200,function(){
+                        //alert($("#divBox").css("left"));
+                        boxL=$("#divBox").css("left");
+                        boxT=$("#divBox").css("top");
+                        console.log(boxL);
+                        console.log(targetL);
+                        console.log(boxL.substring(0,boxL.length-2));
+                        console.log(boxT);
+                        console.log(targetT);
+                        console.log(boxT.substring(0,boxT.length-2));
+                        //console.log(targetL.substring(0,targetL.length-2));
+                        boxL = parseInt(boxL.substring(0,boxL.length-2));
+                        boxT = parseInt(boxT.substring(0,boxT.length-2));
+                        IsBoxInTheTarget();
+                    });
                 });
+                $("#btnUp").click(function(){
+                    $("#divBox").animate({"top":"-=50px"},200,function(){
+                        //alert($("#divBox").css("left"));
+                        boxL=$("#divBox").css("left");
+                        boxT=$("#divBox").css("top");
+                        console.log(boxL);
+                        console.log(targetL);
+                        console.log(boxL.substring(0,boxL.length-2));
+                        console.log(boxT);
+                        console.log(targetT);
+                        console.log(boxT.substring(0,boxT.length-2));
+                        //console.log(targetL.substring(0,targetL.length-2));
+                        boxL = parseInt(boxL.substring(0,boxL.length-2));
+                        boxT = parseInt(boxT.substring(0,boxT.length-2));
+                        IsBoxInTheTarget();
+                    });
+                });
+                $("#btnDown").click(function(){
+                    $("#divBox").animate({"top":"+=50px"},200,function(){
+                        //alert($("#divBox").css("left"));
+                        boxL=$("#divBox").css("left");
+                        boxT=$("#divBox").css("top");
+                        console.log(boxL);
+                        console.log(targetL);
+                        console.log(boxL.substring(0,boxL.length-2));
+                        console.log(boxT);
+                        console.log(targetT);
+                        console.log(boxT.substring(0,boxT.length-2));
+                        //console.log(targetL.substring(0,targetL.length-2));
+                        boxL = parseInt(boxL.substring(0,boxL.length-2));
+                        boxT = parseInt(boxT.substring(0,boxT.length-2));
+                        IsBoxInTheTarget();
+                    });
+                });
+
+                function IsBoxInTheTarget(){
+                    if(boxL>=targetL && boxT>=targetT){
+                        //alert("Entered from left side");
+                        if(IsBoxReached==false){
+                            alert("Box completely entered.");
+                            IsBoxReached = true;
+                        }
+                    }
+                    else{
+                        IsBoxReached = false;
+                    }
+                }
             });
         </script>
     </head>
     <body>
         <input type=button value=Left id=btnLeft  />
         <input type=button value=Right id=btnRight />
-        <input type=button value=Up />
-        <input type=button value=Down />
+        <input type=button value=Up id=btnUp />
+        <input type=button value=Down id=btnDown />
 
         <div id=divBox>
+
+        </div>
+
+        <div id=divTarget>
 
         </div>
     </body>
