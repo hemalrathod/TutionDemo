@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        #amouse
+        {
+            position:absolute;
+            top:10px;
+            left:10px;
+            background-color: red;
+            width:100px;
+            height:100px;
+            box-shadow: 10px 10px 10px gray;
+            border-radius: 50%
+        }
+        </style>
+        <title>Catch Me If You Can</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                //Get value of a tag that is readonly
+                //$("h1").text("This is another game" + i);
+
+               //Get or set value to an editable control     
+               //$("textarea").val("Hi Hello World again");
+
+               //Blur event
+               //:text gets an input element with type = text
+               /* $(":text").blur(function(){
+                  if($(this).val()=="Admin"){
+                      $("div").text("Username available").css("color","green");
+                  }
+                  else{
+                    $("div").text("Username not available").css("color","red");
+                  }
+               }); */
+
+                var t;
+                var l;
+
+               /* $(document).mousemove(function(e){
+                   $("div").text("X:" + e.pageX + ",Y:" + e.pageY);
+               }); */
+               $("#amouse").mouseenter(function(){
+                   //alert("In");
+                   var r = Math.random();
+                   l = 1200*r;
+                   r = Math.random();
+                   t = 500*r;
+                   $(this).animate(
+                        {
+                           "top":t+"px","left":l+"px"
+                        }
+                        ,200
+                    );
+               });
+               $("#amouse").mouseleave(function(){
+                   //alert("Out");
+               });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- <center><input type=text /><div></div><input type=button value=Click /></center> -->
+        <div id=amouse></div>
+    </body>
+</html> 
