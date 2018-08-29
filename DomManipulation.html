@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <style>
+        </style>
+        <title>Chat With Me</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                //Append alwasy adds text or html to end of an element
+                $("div").append("<b>World</b>");
+
+                $("<b>World</b>").appendTo("div");
+
+                //Append alwasy adds text or html to start of an element
+                $("div").prepend("<b>World</b>");
+
+                $("<b>World</b>").prependTo("div");
+
+                //attr is used to add html attirbute to a tag
+
+                $("div").attr("style","color:red");
+
+
+                $("div").before("<p>Paragraph</p>");
+
+                //text and html function completely replaces existing content    
+                $("h2").text("<label style=color:red>Heading 3</label>");
+
+                $("h2").html("<label style=color:red>Heading 3</label>");
+
+                //Remove used to erase a tag
+               //$("*").remove();
+
+               $(":text").focus();
+
+               $(":text").keyup(function(e){
+                   //Enter key code
+                   //alert(e.which);
+                   if(e.which==13){
+                       var str = $(this).val();
+                       //alert(str);
+                       $("#chatarea").append("<div>"+str+"</div>");
+                       $(this).val("");
+                   }
+               });
+            });
+        </script>
+    </head> 
+    <body>
+        <div>Hello</div>
+        <div>Again</div>
+
+        <h2>Heading 2</h2>
+        <div id=chatarea></div>
+        <input type=text />
+    </body>
+</html>

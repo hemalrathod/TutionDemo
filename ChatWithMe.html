@@ -155,13 +155,31 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             $(document).ready(function(){
-                $(".textClose").click(function(){
+                var str = "";
+                str+="<div class=chatwindow>";
+                str+="<div class=toolbar>";
+                str+="<label class=textClose>Close</label>";
+                str+="</div>";
+                str+="<div class=chattext>";
+                str+="";
+                str+="</div>";
+                str+="<div class=chatenter>";
+                str+="<input type=text />";
+                str+="</div>";
+                str+="</div>";
+
+                //Any event will be attached only this way 
+                //If that element is available at loading
+                //$(".textClose").click(function(){
+                $(document).on("click",".textClose",function(){    
                     //Will close current chat window
-                    $(this).closest(".chatwindow").fadeOut("slow");
+                    //$(this).closest(".chatwindow").fadeOut("slow");
+                    $(this).closest(".chatwindow").remove();
                 });
                 $(".friend").click(function(){
                     //Will open new chat window
-                    $(".chatwindow").fadeIn("slow");
+                    //$(".chatwindow").fadeIn("slow");
+                    $("#chatarea").append(str);
                 });
             });
         </script>
@@ -173,7 +191,7 @@
             </div>
             <div id=section>
                 <div id=chatarea>
-                    <div class=chatwindow>
+                    <!-- <div class=chatwindow>
                         <div class=toolbar>
                             <label class=textClose>Close</label>
                         </div>
@@ -194,7 +212,7 @@
                                 <div class=chatenter>
                                     <input type=text />
                                 </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div id=friendlist>
                     <div class=friend>
