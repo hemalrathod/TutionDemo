@@ -1,0 +1,78 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Bootstrap Form</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <style>
+           body,html{
+               margin:0;
+               height:100%
+           }
+           .container{
+               height:100%
+           }
+           .row1{
+               height:20%
+           }
+           header{
+              height:100%;
+           }
+           .row2{
+               height:75%
+           }
+           nav{
+               height:100%
+           }
+           section{
+               height:100%
+           }
+           .row3{
+               height:5%
+           }
+           footer{
+                height:100%
+           }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row row1">
+                <header class="col-lg-12 bg-primary">
+                    This is header
+                </header>
+            </div>
+            <div class="row row2">
+                <nav class="col-lg-3 bg-secondary">
+                    Nav
+                </nav>
+                <section class="col-lg-9 bg-success">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Email</label>
+                            <div class=col-sm-9>
+                                <input type=email placeholder="Email" class=form-control />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Password</label>
+                                <div class=col-sm-9>
+                                    <input type=password placeholder="Password" class=form-control />
+                                </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10 offset-sm-2">
+                                <input class="btn btn-primary" type="submit" value="Sign in" />
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div class="row row3">
+                <footer class="col-lg-12 bg-danger">
+
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
