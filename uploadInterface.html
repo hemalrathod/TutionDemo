@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>File Upload With PHP</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <style>
+            .custom
+            {
+                height:200px;
+                background-color: aquamarine
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class=row>
+                <div class=col-md-12>
+                    <div class="card text-white bg-primary mb-12" >
+                        <div class="card-header">File Upload With PHP</div>
+                        <div class="card-body">
+                          <h5 class="card-title">Choose a file</h5>
+                          <form method=POST action=uploadSavefile.php enctype="multipart/form-data">
+                          <input type=file name=file  />
+                          <input type="submit" value=Upload class="btn btn-default" />
+                        </form>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
